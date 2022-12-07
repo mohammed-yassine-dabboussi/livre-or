@@ -53,13 +53,8 @@ $request = $mysqli -> query("SELECT * FROM `utilisateurs` WHERE `login` = '".$us
                     foreach ($_SESSION as $key => $value) {
                          echo "<h2 style='color:rgb(160, 0, 0);'>Bonjour ".$_SESSION['user'][0]."</h2>";
                     }
-                    while(($result = $request -> fetch_array()) != null){
-                        echo "Identifiant : ".$result['login'];
-                        echo "<br>Prénom : ".$result['prenom'];
-                        echo "<br>Nom : ".$result['nom'];
-                    }
                 ?>
-                <h2><a class="bouton_header" href="modif_profil.php">&#10148;Modifiez votre profil:</a></h2> 
+                <h2><a href="modif_profil.php">&#10148;Modifiez votre profil:</a></h2> 
             </div>
         </div>
     </body> 

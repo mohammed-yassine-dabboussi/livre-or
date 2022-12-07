@@ -43,15 +43,6 @@ session_start();
                     <h1>Modifiez votre profil</h1>
 
                     <table>
-
-                        <tr>
-                            <td>Nom</td>
-                            <td><input type="text" name="nom"  placeholder="Entrez votre nom !" size="25"/></td>
-                        </tr>
-                        <tr>
-                            <td>Prénom</td>
-                            <td><input type="text" name="prenom" placeholder="Entrez votre prénom !" size="25"/></td>
-                        </tr>
                         <tr>
                             <td>Mot de Passe</td>
                             <td><input type="password" name="password" placeholder="Entrez votre mot de passe !" size="25"/></td>
@@ -73,17 +64,7 @@ session_start();
                         $user = $_SESSION['user'][0] ;
                     }
                     $modification = 0;
-                    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['password']) && isset($_POST['password_confirmation'])){
-                        if ($_POST['nom']!=""){
-                            $nom=$_POST['nom'];
-                            $modification = 1;
-                            $mysqli->query('UPDATE `utilisateurs` SET `nom`="'.$nom.'" WHERE `login`="'.$user.'"');
-                        }
-                        if ($_POST['prenom']!=""){
-                            $prenom=$_POST['prenom'];
-                            $modification = 1;
-                            $mysqli->query('UPDATE `utilisateurs` SET `prenom`="'.$prenom.'" WHERE `login`="'.$user.'"');
-                        }
+                    if (isset($_POST['password']) && isset($_POST['password_confirmation'])){
                         if ($_POST['password']!=""){
                             if ($_POST['password'] == $_POST['password_confirmation']){
                             $password=$_POST['password'];

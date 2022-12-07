@@ -47,8 +47,6 @@ session_start();
                         <tr>
                             <th>Id</th>
                             <th>Login</th>
-                            <th>Prénom</th>
-                            <th>Nom</th>
                             <th>Mot de passe</th>
                         </tr>
                     </thead>
@@ -59,8 +57,6 @@ session_start();
                                 echo "<tr>";
                                 echo "<td>".$result['id']."</td>";
                                 echo "<td>".$result['login']."</td>";
-                                echo "<td>".$result['prenom']."</td>";
-                                echo "<td>".$result['nom']."</td>";
                                 echo "<td>".$result['password']."</td>";
                                 echo "</tr>";
                             }

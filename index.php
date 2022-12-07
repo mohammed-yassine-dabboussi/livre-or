@@ -29,8 +29,8 @@
         <div class="div_body">
             <div class="div_milieu"> 
                 <h1>Bienvenue sur notre site</h1>
-                <h2><a class="bouton_header" href="inscription.php">&#10148;Inscrivez-vous :</a> </h2>
-                <h2><a class="bouton_header" href="connexion.php">&#10148;Connectez-vous :</a></h2> 
+                <h2><a  href="inscription.php">&#10148;Inscrivez-vous:</a> </h2><br>
+                <h2><a  href="connexion.php">&#10148;Connectez-vous:</a></h2> 
             </div>
         </div>
     </body> 

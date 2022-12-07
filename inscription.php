@@ -57,13 +57,11 @@ session_start();
                 </form>
                 <!--Partie PHP -->
                 <?php
-                    if (isset($_POST['login']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['password']) && isset($_POST['password_confirmation'])){
-                        if ($_POST['login']!="" && $_POST['nom']!="" && $_POST['prenom']!="" && $_POST['password']!="" && $_POST['password_confirmation']!="" ){
+                    if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['password_confirmation'])){
+                        if ($_POST['login']!="" && $_POST['password']!="" && $_POST['password_confirmation']!="" ){
                             if ($_POST['password'] === $_POST['password_confirmation']){  
                                 //recuperer le contenu du formulaire 
                                 $login=$_POST['login'];
-                                $prenom=$_POST['nom'];
-                                $nom=$_POST['prenom'];
                                 $password1=$_POST['password'];
                                 $password2=$_POST['password_confirmation']; 
 
@@ -72,23 +70,21 @@ session_start();
                                 
                                 
                                 //vérifier si l'identifiant existe déja
-                                 if ($result_fetch_array['COUNT(*)'] == 0){
+                                if($result_fetch_array['COUNT(*)'] == 0){
                                     //   requête pour ajouter les données entré par l'utilisateur à la base des données  
-                                     $request = $mysqli -> query("INSERT INTO `utilisateurs`(`id`, `login`, `prenom`, `nom`, `password`) VALUES (NULL,'$login','$nom','$prenom','$password1')");
+                                     $request = $mysqli -> query("INSERT INTO `utilisateurs`(`id`, `login`, `password`) VALUES (NULL,'$login','$password1')");
                                      echo "<p style='color:rgb(0, 240, 44);'>Félicitations, vous êtes bien inscrit !</p>";
-                                     echo "<h2><a a href='connexion.php'>&#10148;Connectez-vous:</a></h2>"; 
+                                     echo "<h2><a  href='connexion.php'>&#10148;Connectez-vous:</a></h2>"; 
 
-                                 }else{
-                                        
-                                     echo "<p style='color:rgb(160, 0, 0);'>L'idetifiant existe déja !</p>";
-                                     }
-
-                            }else {
+                                }else{
+                                    echo "<p style='color:rgb(160, 0, 0);'>L'idetifiant existe déja !</p>";
+                                }
+                            }else{
                                 echo "<p style='color:rgb(160, 0, 0);'>Les mots de passes ne sont pas identiques</p>";
                             }
-                        }else {
+                        }else{
                         echo "<p style='color:rgb(160, 0, 0);'>Veuillez remplir tout les champs !</p>";
-                    }
+                        }
                     }
                 ?>
             </div>
