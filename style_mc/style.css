@@ -51,6 +51,7 @@ a:visited{
 a:hover { 
     color: rgb(189, 171, 10);
 }
+
 .div_milieu a:link{
     color: rgb(59, 59, 59);
     text-decoration:none; 
@@ -62,7 +63,7 @@ a:hover {
 }
 
 .div_milieu a:hover { 
-    color: rgb(207, 87, 57);
+    color: rgb(155, 78, 58);
 }
 
 .div_body{
