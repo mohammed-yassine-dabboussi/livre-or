@@ -1,9 +1,10 @@
 <?php
-
+//Faire appel à la page connect où on trouve la connexion à la base de données
 include 'connect.php';
+//démarrer la session
 session_start();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,27 +13,30 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_mc/style.css"/>
     <link rel="shortcut icon" href="" >
-    <title>Module Connexion-Inscription</title>
+    <title>Livre d'or</title>
 </head>
 
 
   
-    <header>
-        <div class="hGauche">
-            <div class="bouton_header">Module connexion | Mohammed Yassine Dabboussi</div>
-        </div>
-
-        <div class="hDroite">
-            <div class="bouton_header"><a href="index.php" >Accueil</a></div>
-            <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
-            <div class="bouton_header"><a href="connexion.php" >Connexion</a></div>
-        </div>
-    </header>
+<header>
+    <!--Partie gauche du header-->
+    <div class="hGauche">
+        <div class="bouton_header">Livre d'or | Mohammed Yassine Dabboussi</div>
+    </div>
+    <!--Partie droite du header-->
+    <div class="hDroite">
+        <div class="bouton_header"><a href="index.php" >Accueil</a></div>
+        <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
+        <div class="bouton_header"><a href="connexion.php" >Connexion</a></div>
+    </div>
+</header>
 
     <body>
-        
+        <!--div principale-->
         <div class="div_body">
-            <div class="div_milieu"> 
+        <!--div du milieu du body-->
+            <div class="div_milieu">
+                <!--formulaire--> 
                 <form action="" method="post">
                     <h1>Inscription</h1>
 

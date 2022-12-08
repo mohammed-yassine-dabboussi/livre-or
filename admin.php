@@ -1,8 +1,8 @@
 <?php
-
+//Faire appel à la page connect où on trouve la connexion à la base de données
 include 'connect.php';
 $request = $mysqli -> query("SELECT * FROM `utilisateurs` ");
-
+//démarrer la session
 session_start();
 
 ?>
@@ -15,16 +15,15 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_mc/style.css"/>
     <link rel="shortcut icon" href="" >
-    <title>Module Connexion</title>
+    <title>Livre d'or</title>
 </head>
 
-
-  
     <header>
+            <!--Partie gauche du header-->
             <div class="hGauche">
-                <div class="bouton_header">Module connexion | Mohammed Yassine Dabboussi</div>
+                <div class="bouton_header">Livre d'or | Mohammed Yassine Dabboussi</div>
             </div>
-
+            <!--Partie droite du header-->
             <div class="hDroite">
                 
                 <div class="bouton_header"><a href="" ><?php foreach ($_SESSION as $key => $value) {
@@ -39,8 +38,9 @@ session_start();
     </header>
 
     <body>
-        
+        <!--div principale-->
         <div class="div_body">
+        <!--div du milieu du body-->
             <div class="div_milieu"> 
                     <table border : solid>
                     <thead>
@@ -57,7 +57,7 @@ session_start();
                                 echo "<tr>";
                                 echo "<td>".$result['id']."</td>";
                                 echo "<td>".$result['login']."</td>";
-                                echo "<td>".$result['password']."</td>";
+                                echo "<td>"."*****"."</td>";
                                 echo "</tr>";
                             }
 

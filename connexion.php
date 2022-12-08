@@ -1,9 +1,10 @@
 <?php
+//Faire appel à la page connect où on trouve la connexion à la base de données
 include 'connect.php';
 $request = $mysqli -> query("SELECT * FROM `utilisateurs` ");
 session_start();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,30 +13,30 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_mc/style.css"/>
     <link rel="shortcut icon" href="" >
-    <title>Module Connexion</title>
+    <title>Livre d'or</title>
 </head>
 
-
-  
-    <header>
-        <div class="hGauche">
-            <div class="bouton_header">Module connexion | Mohammed Yassine Dabboussi</div>
-        </div>
-
-        <div class="hDroite">
-            <div class="bouton_header"><a href="index.php" >Accueil</a></div>
-            <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
-            <div class="bouton_header"><a href="connexion" >Connexion</a></div>
-        </div>
-    </header>
+<header>
+    <!--Partie gauche du header-->
+    <div class="hGauche">
+        <div class="bouton_header">Livre d'or | Mohammed Yassine Dabboussi</div>
+    </div>
+    <!--Partie droite du header-->
+    <div class="hDroite">
+        <div class="bouton_header"><a href="index.php" >Accueil</a></div>
+        <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
+        <div class="bouton_header"><a href="connexion" >Connexion</a></div>
+    </div>
+</header>
 
     <body>
-        
+        <!--div principale-->
         <div class="div_body">
+        <!--div du milieu du body-->
             <div class="div_milieu"> 
+                <!--formulaire-->
                 <form action="" method="post">
                     <h1>Connexion</h1>
-
                     <table>
                         <tr>
                             <td>Identifiant</td>
@@ -56,7 +57,6 @@ session_start();
                         if ($_POST['login']!="" && $_POST['password']!=""){
                             $login=$_POST['login'];
                             $password=$_POST['password']; 
-                            
                             while(($result = $request -> fetch_array()) != null){
                                 if ($login === $result['login']){  
                                     if($password === $result['password']){
@@ -66,17 +66,15 @@ session_start();
                                         }else{
                                             $_SESSION['user'][]= $_POST['login'];
                                             header('Location: profil.php');
-                                            }
-                                    }else {
+                                        }
+                                    }else{
                                         echo "<p style='color:rgb(160, 0, 0);'>Veuillez vérifier l'identifiant et le mot de passe !</p>";
-                                        
                                     }
                                 }
-                                
                             }
-                        }else {
-                        echo "<p style='color:rgb(160, 0, 0);'>Veuillez entrez l'identifiant et le mot de passe !</p>";
-                    }
+                        }else{
+                            echo "<p style='color:rgb(160, 0, 0);'>Veuillez entrez l'identifiant et le mot de passe !</p>";
+                        }
                     }
                 ?>
             </div>
