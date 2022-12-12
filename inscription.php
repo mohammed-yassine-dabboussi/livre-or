@@ -26,6 +26,9 @@ session_start();
     <!--Partie droite du header-->
     <div class="hDroite">
         <div class="bouton_header"><a href="index.php" >Accueil</a></div>
+        <div class="bouton_header">
+            <a href="livre-or_anonyme.php" >Livre d'or</a>
+        </div>
         <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
         <div class="bouton_header"><a href="connexion.php" >Connexion</a></div>
     </div>
@@ -59,6 +62,7 @@ session_start();
                         </tr>
                     </table>
                 </form>
+                <h2><a  href="connexion.php">&#10148;Connectez-vous:</a></h2> 
                 <!--Partie PHP -->
                 <?php
                     if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['password_confirmation'])){
@@ -69,11 +73,10 @@ session_start();
                                 $password1=$_POST['password'];
                                 $password2=$_POST['password_confirmation']; 
 
+                                //vérifier si l'identifiant existe déja
                                 $request = $mysqli -> query('SELECT COUNT(*) FROM `utilisateurs` WHERE `login`="'.$login.'"');
                                 $result_fetch_array = $request -> fetch_array();
-                                
-                                
-                                //vérifier si l'identifiant existe déja
+                                // Si l'identifiant n'existe pas 
                                 if($result_fetch_array['COUNT(*)'] == 0){
                                     //   requête pour ajouter les données entré par l'utilisateur à la base des données  
                                      $request = $mysqli -> query("INSERT INTO `utilisateurs`(`id`, `login`, `password`) VALUES (NULL,'$login','$password1')");

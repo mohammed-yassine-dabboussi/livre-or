@@ -17,6 +17,9 @@
     <!--Partie droite du header-->
     <div class="hDroite">
         <div class="bouton_header"><a href="index.php" >Accueil</a></div>
+        <div class="bouton_header">
+            <a href="livre-or_anonyme.php" >Livre d'or</a>
+        </div>
         <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
         <div class="bouton_header"><a href="connexion.php" >Connexion</a></div>
     </div>

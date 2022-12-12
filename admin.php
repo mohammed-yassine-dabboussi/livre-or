@@ -42,7 +42,8 @@ session_start();
         <div class="div_body">
         <!--div du milieu du body-->
             <div class="div_milieu"> 
-                    <table border : solid>
+                <h1>Livre d'or</h1>
+                <table border : solid>
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -60,10 +61,9 @@ session_start();
                                 echo "<td>"."*****"."</td>";
                                 echo "</tr>";
                             }
-
-                            
                         ?>
-            </table>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body> 

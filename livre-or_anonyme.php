@@ -2,7 +2,7 @@
 //Faire appel à la page connect où on trouve la connexion à la base de données
 include 'connect.php';
 //$request = $mysqli -> query("SELECT * FROM `commentaires` ORDER BY id DESC");
-$request = $mysqli -> query("SELECT commentaires.commentaire, DATE_FORMAT(commentaires.date, '%d %M %Y') as date, utilisateurs.login 
+$request = $mysqli -> query("SELECT commentaires.commentaire, DATE_FORMAT(commentaires.date, '%d_%m_%Y') as date, utilisateurs.login 
                              FROM commentaires 
                              INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id 
                              ORDER BY commentaires.id DESC");
@@ -29,19 +29,14 @@ session_start();
             <div class="bouton_header">Livre d'or | Mohammed Yassine Dabboussi</div>
         </div>
         <!--Partie droite du header-->
+        <!--Partie droite du header-->
         <div class="hDroite">
-
-            <div class="bouton_header"><a href="profil.php" ><?php foreach ($_SESSION as $key => $value) {
-                                                         echo $_SESSION['user'][0] ;
-                                                         } ?></a></div>
+            <div class="bouton_header"><a href="index.php" >Accueil</a></div>
             <div class="bouton_header">
-                <a href="commentaire.php" >Commentaire</a>
+            <a href="livre-or_anonyme.php" >Livre d'or</a>
             </div>
-            <div class="bouton_header"><form action="" method="post"><input type="submit" value="Deconnexion" name="deconnexion"></form></div>
-            <?php     if (isset($_POST['deconnexion'])) {
-                        session_destroy();
-                        header('Location: index.php');
-                      }?>
+            <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
+            <div class="bouton_header"><a href="connexion.php" >Connexion</a></div>
         </div>
     </header>
 
@@ -62,10 +57,6 @@ session_start();
                 }
                 
             ?>
-            
-            <div class="bouton_header">
-                <a href="commentaire.php" >Commentaire</a>
-            </div>
             
         </div>
     </body>

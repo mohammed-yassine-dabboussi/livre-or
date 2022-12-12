@@ -24,6 +24,9 @@ session_start();
     <!--Partie droite du header-->
     <div class="hDroite">
         <div class="bouton_header"><a href="index.php" >Accueil</a></div>
+        <div class="bouton_header">
+            <a href="livre-or_anonyme.php" >Livre d'or</a>
+        </div>
         <div class="bouton_header"><a href="inscription.php" >Inscription</a></div>
         <div class="bouton_header"><a href="connexion" >Connexion</a></div>
     </div>
@@ -51,6 +54,7 @@ session_start();
                         </tr>
                     </table>
                 </form>
+                <h2><a  href="inscription.php">&#10148;Inscrivez-vous:</a> </h2><br>
                 <!--Partie PHP -->
                 <?php
                     if (isset($_POST['login']) && isset($_POST['password'])){

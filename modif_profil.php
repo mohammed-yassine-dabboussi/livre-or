@@ -32,6 +32,9 @@ session_start();
                     ?>
                 </a>
             </div>
+            <div class="bouton_header">
+                <a href="livre-or.php" >Livre d'or</a>
+            </div>
             <div class="bouton_header"><form action="" method="post"><input type="submit" value="Deconnexion" name="deconnexion"></form></div>
             <?php     
                 if (isset($_POST['deconnexion'])){
@@ -50,6 +53,7 @@ session_start();
                 <!--formulaire-->
                 <form action="" method="post">
                     <h1>Modifiez votre profil</h1>
+                    <p>Changer l'identifiant et/ou le mot de passe</p>
                     <table>
                         <tr>
                             <td>Identifiant</td>
@@ -75,8 +79,9 @@ session_start();
                     foreach ($_SESSION as $key => $value) {
                         $user = $_SESSION['user'][0] ;
                     }
-                    $modification = 0;
-                    if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['password_confirmation'])){
+                    $modification_login = 0;
+                    $modification_mdp = 0;
+                    if (isset($_POST['login']) ){
                         //Si on modifie l'identifiant
                         if ($_POST['login']!=""){
                             $login=$_POST['login'];
@@ -88,28 +93,32 @@ session_start();
                                 //   requête pour appliquer les modifications
                                 $mysqli->query('UPDATE `utilisateurs` SET `login`="'.$login.'" WHERE `login`="'.$user.'"');
                                 $_SESSION['user'][0]= $_POST['login'];
-                                //actualiser la page aprés 3 secondes 
-                                header( "refresh:3;url=modif_profil.php" );
-                                $modification = 1;
+                                //actualiser la page aprés 2 secondes 
+                                header( "refresh:2;url=modif_profil.php" );
+                                $user = $login;
+                                $modification_login = 1;
                             }else{
                                 echo "<p style='color:rgb(160, 0, 0);'>L'idetifiant existe déja !</p>";
                             }
                         }
+                    }
+                    if (isset($_POST['password']) && isset($_POST['password_confirmation'])){
                         //Si on modifie le mot de passe
-                        if ($_POST['password']!=""){
+                        if ($_POST['password']!="" ){
                             if ($_POST['password'] == $_POST['password_confirmation']){
-                            $password=$_POST['password'];
-                            $modification = 1;
-                            $mysqli->query('UPDATE `utilisateurs` SET `password`="'.$password.'" WHERE `login`="'.$user.'"');
+                                $password=$_POST['password'];
+                                $mysqli->query('UPDATE `utilisateurs` SET `password`="'.$password.'" WHERE `login`="'.$user.'"');
+                                $modification_mdp = 1;
                             }else {
                                 echo "<p style='color:rgb(160, 0, 0);'>Les mots de passes ne sont pas identiques</p>";
                             }
                         }
-                        //si on modifie un champ ou plus un message s'affiche
-                        if($modification === 1){
-                            echo "<p style='color:rgb(0, 240, 44);'>Vos données ont été mis à jour !</p>";
-                        }
                     }
+                    //si on modifie un champ ou plus un message s'affiche
+                    if($modification_mdp === 1 || $modification_login === 1){
+                        echo "<p style='color:rgb(0, 240, 44);'>Vos données ont été mis à jour !</p>";
+                    }
+                    
                 ?>
             </div>
         </div>
